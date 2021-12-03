@@ -1,5 +1,12 @@
 import React from 'react';
+import { CocktailList } from '../components/CocktailList';
+import { SearchForm } from '../components/SearchForm';
 
 export const Home = () => {
-  return <div>Hello Home Page</div>;
+  return (
+    <div>
+      <SearchForm />
+      <CocktailList />
+    </div>
+  );
 };
