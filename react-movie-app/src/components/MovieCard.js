@@ -1,21 +1,17 @@
+import { FaHeart } from "react-icons/fa";
 
-
-const MovieCard = ({name,desc,image,rate}) => {
+const MovieCard = ({name,image,rate}) => {
 
     return (
-            <div className='row mt-5'>
-                <div className='card' style={{ width: '18rem' }}>
-                    <img src={`https://image.tmdb.org/t/p/w1280${image}`} className='card-img-top' alt={`https://image.tmdb.org/t/p/w1280${image}`} />
-                    <div className='card-body'>
-                        <h5 className='card-title'>{name}</h5>
-                        <p>{rate}</p>
-                        <p className='card-text'>
-                            {desc}
-                        </p>
-                        
-                    </div>
-                </div>
+        <div className="col-lg-3 mt-5 d-flex align-items-stretch">
+        <div className='card' style={{ width: '19rem' }}>
+            <img src={`https://image.tmdb.org/t/p/w1280${image}`} className='card-img-top' alt={`https://image.tmdb.org/t/p/w1280${image}`} />
+            <div className='card-body'>
+                <h4 className='card-title'>{name}</h4>
+                <p><FaHeart className = "icon"/>{rate}</p>
             </div>
+        </div>
+        </div>
     );
 };
 

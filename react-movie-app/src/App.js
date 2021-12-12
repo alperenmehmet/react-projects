@@ -5,9 +5,9 @@ import { SearchMovie } from './components/SearchMovie';
 
 function App() {
   return (
-    <div className='row'>
-        <SearchMovie />
-       <MovieList/>
+    <div>
+        <SearchMovie/>
+        <MovieList/>
     </div>
   );
 }
