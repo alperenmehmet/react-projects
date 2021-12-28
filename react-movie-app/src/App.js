@@ -1,15 +1,16 @@
+import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Route, Routes } from 'react-router-dom'
+import {Route, Router, Routes} from 'react-router-dom'
 import { MovieList } from './components/MovieList'
-import { SearchMovie } from './components/SearchMovie'
-import { SingleMovie } from './pages/SingleMovie'
+import SingleMovie  from './pages/SingleMovie'
+
 
 function App() {
   return (
     <>
-      <SearchMovie />
       <Routes>
-        <Route path="/" element={<MovieList />} />
+          <Route path="/" element={<MovieList />} />
+          <Route path="/:id" element={<SingleMovie/>}/>
       </Routes>
     </>
   )

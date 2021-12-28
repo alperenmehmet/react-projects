@@ -17,19 +17,20 @@ export const SearchMovie = () => {
     }
   return (
       <form onSubmit={handleSubmit}>
-    <div className=''>
-      <div className='input-group-lg container mt-5 w-50'>
-        <input
-          type='text'
-          className='form-control '
-          aria-label='Sizing example input'
-          aria-describedby='inputGroup-sizing-lg'
-          ref={searchValue}
-          onChange={searchMovie}
-          placeholder="Search for a movie"
-        />
-      </div>
-    </div>
+        <div className=''>
+        <div className='input-group-lg container mt-5 w-50'>
+            <input
+            type='text'
+            aria-label='Sizing example input'
+            aria-describedby='inputGroup-sizing-lg'
+            className='form-control '
+            ref={searchValue}
+            onChange={searchMovie}
+            placeholder="Search for a movie"
+            style={{width:"100%"}}
+            />
+        </div>
+        </div>
       </form>
   );
 };
