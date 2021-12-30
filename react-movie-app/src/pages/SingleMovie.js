@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import {BASE_URL} from "../constants/constants";
+import { FaHeart } from 'react-icons/fa'
+
 
 const SingleMovie = () => {
   const [movie, setMovie] = useState([])
@@ -25,8 +27,17 @@ const SingleMovie = () => {
 console.log(movie)
   return (
     <div className="container">
-      <div className="row mt-5">
-        <div className="col"><img src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}/></div>
+      <div className="row row-cols-2 mt-5">
+        <div className="col">
+          <img src={`https://image.tmdb.org/t/p/w1280${movie.poster_path}`} className="content-img"/>
+        </div>
+        <div className="col">
+          <h2 >{movie.title}</h2>
+          <div>
+            <h4 className="mt-3"><FaHeart className="icon"/>{movie.vote_average}</h4>
+            <h4>{movie.runtime}</h4>
+          </div>
+          </div>
       </div>
     </div>
   )

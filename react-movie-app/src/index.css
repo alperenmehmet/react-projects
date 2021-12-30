@@ -56,3 +56,9 @@ button {
   margin-right: 10px;
   color:orange;
 }
+
+.content-img{
+  width: 30rem;
+  height: 100%;
+  box-shadow: 0rem 2rem 5rem rgba(0, 0, 0, 0.2);
+}
