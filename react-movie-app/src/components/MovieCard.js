@@ -14,7 +14,7 @@ const MovieCard = ({ id, name, image, rate }) => {
         </Link>
         <div className="card-body">
           <h4 className="card-title">{name}</h4>
-          <p>
+          <p className="rating">
             <FaHeart className="icon" />
             {rate}
           </p>
