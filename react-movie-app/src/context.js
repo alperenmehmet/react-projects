@@ -7,8 +7,6 @@ const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(false)
   const [movies, setMovies] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
-  const [count, setCount] = useState(1)
-  const [newPageMovies, setNewPageMovies] = useState([])
 
   const fetchMovie = useCallback(async () => {
     setLoading(true)
@@ -16,7 +14,7 @@ const AppProvider = ({ children }) => {
       const response = await fetch(
         searchTerm
           ? `${BASE_SEARCH_URL}${KEY}&language=en-US&query=${searchTerm}&page=1&include_adult=false`
-          : `${BASE_URL}popular?api_key=${process.env.REACT_APP_API_KEY}&page=${count}`
+          : `${BASE_URL}popular?api_key=${process.env.REACT_APP_API_KEY}&page=1`
       )
       const data = await response.json()
       const { results } = data
@@ -37,16 +35,16 @@ const AppProvider = ({ children }) => {
       } else {
         setMovies(null)
       }
+
       setLoading(false)
     } catch (err) {
       setLoading(false)
     }
-  }, [searchTerm, count])
+  }, [searchTerm])
 
   useEffect(() => {
     fetchMovie()
   }, [fetchMovie])
-  console.log('context', count)
 
   return (
     <AppContext.Provider
@@ -54,11 +52,7 @@ const AppProvider = ({ children }) => {
         loading,
         movies,
         searchTerm,
-        setSearchTerm,
-        count,
-        setCount,
-        newPageMovies,
-        setNewPageMovies
+        setSearchTerm
       }}
     >
       {children}
