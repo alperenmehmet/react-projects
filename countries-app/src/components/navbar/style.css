@@ -1,0 +1,8 @@
+.navbar-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar-container button {
+  float: right;
+}
