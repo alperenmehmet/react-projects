@@ -1,24 +1,29 @@
+import { useEffect } from 'react';
+import { useGlobalContext } from '../../context';
+
 export function SearchCountry() {
+  const { setSearchTerm } = useGlobalContext();
+  const searchValue = useRef('');
+
+  useEffect(() => {
+    searchValue.current.focus();
+  }, []);
+
   const searchCountry = () => {
-    console.log('search');
+    setSearchTerm(searchValue.current.value);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
   };
   return (
     <form onSubmit={handleSubmit}>
-      <div className='input-group-lg container mt-5 w-50'>
-        <input
-          type='text'
-          aria-label='Sizing example input'
-          aria-describedby='inputGroup-sizing-lg'
-          className='form-control '
-          ref={searchValue}
-          onChange={searchCountry}
-          placeholder='Search for a movie'
-          style={{ width: '100%' }}
-        />
-      </div>
+      <input
+        type='text'
+        className='form-control '
+        ref={searchValue}
+        onChange={searchCountry}
+        placeholder='Search Country'
+      />
     </form>
   );
 }

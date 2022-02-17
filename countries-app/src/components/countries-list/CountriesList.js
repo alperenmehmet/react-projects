@@ -1,5 +1,6 @@
 import { useGlobalContext } from '../../context';
 import { CountryCard } from '../country-card/CountryCard';
+import { SearchCountry } from '../search-country/SearchCountry';
 
 export function CountriesList() {
   const { countries } = useGlobalContext();
