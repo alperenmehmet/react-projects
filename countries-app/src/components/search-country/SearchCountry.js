@@ -16,14 +16,16 @@ export function SearchCountry() {
     e.preventDefault();
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type='text'
-        className='form-control '
-        ref={searchValue}
-        onChange={searchCountry}
-        placeholder='Search Country'
-      />
-    </form>
+    <div className='section-center search-form'>
+      <form onSubmit={handleSubmit}>
+        <input
+          type='text'
+          className='form-input '
+          ref={searchValue}
+          onChange={searchCountry}
+          placeholder='Search Country'
+        />
+      </form>
+    </div>
   );
 }
