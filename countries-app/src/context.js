@@ -17,7 +17,6 @@ const AppProvider = ({ children }) => {
       console.log(err);
     }
   }, [searchTerm]);
-  console.log(countries);
 
   useEffect(() => {
     fetchCountries();

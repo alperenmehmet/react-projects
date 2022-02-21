@@ -1,10 +1,13 @@
+import { Link } from 'react-router-dom';
 import './style.css';
 
 export function CountryCard({ name, population, region, capital, flags }) {
+  const newName = name.official;
   return (
     <div className='country-card'>
-      <img src={flags.png} alt='country' />
-
+      <Link to={`/${newName}`}>
+        <img src={flags.png} alt='country' />
+      </Link>
       <h3 className='country-name'> {name.official}</h3>
       <div className='country-info'>
         <p className='country-population'>

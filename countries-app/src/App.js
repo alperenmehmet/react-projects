@@ -11,7 +11,7 @@ export function App() {
       <SearchCountry />
       <Routes>
         <Route path='/' element={<CountriesList />} />
-        <Route path='/:id' element={<SingleCountry />} />
+        <Route path='/:name' element={<SingleCountry />} />
       </Routes>
     </>
   );
