@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { URL_COUNTRY } from '../../constants/api';
 
@@ -19,5 +19,24 @@ export function SingleCountry() {
     }
     getCountry();
   }, [name]);
-  return <div>hello single page</div>;
+  const {
+    altSpellings,
+    flags,
+    population,
+    region,
+    subregion,
+    capital,
+    tld,
+    currencies,
+    languages,
+    borders,
+  } = country;
+  return (
+    <div className='section-center'>
+      <div>
+        <img src='' alt='country' />
+      </div>
+      <div></div>
+    </div>
+  );
 }

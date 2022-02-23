@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import './style.css';
 
 export function CountryCard({ name, population, region, capital, flags }) {
-  const newName = name.official;
+  const newName = name.official.replace(/\s/g, '').toLowerCase();
+
   return (
     <div className='country-card'>
       <Link to={`/${newName}`}>
