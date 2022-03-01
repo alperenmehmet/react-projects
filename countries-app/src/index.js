@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './index.css';
 import { App } from './App';
 import { AppProvider } from './context';
 import { BrowserRouter } from 'react-router-dom';
-import './global.css';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -13,5 +13,5 @@ ReactDOM.render(
       </AppProvider>
     </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('app')
+  document.getElementById('root')
 );
