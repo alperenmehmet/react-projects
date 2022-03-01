@@ -21,15 +21,39 @@ export function SingleCountry() {
 
   console.log(country[0]);
 
+  // const {
+  //   population,
+  //   region,
+  //   subregion,
+  //   capital,
+  //   tld,
+  //   currencies,
+  //   languages,
+  //   borders,
+  //   flags,
+  // } = country[0];
+
   return (
-    <div className='section-center'>
-      <div>
-        <img src='' alt='country' />
-        <h3></h3>
-        <h2></h2>
-        <h2></h2>
-      </div>
-      <div></div>
+    <div>
+      {country[0] !== 'undefined' && (
+        <div className='section-center'>
+          <div>
+            <img src={country[0]?.flags.png} alt='country' />
+            <h3>{country[0]?.population}</h3>
+            <h2>{country[0]?.region}</h2>
+            <h2>{country[0]?.currencies.name}</h2>
+            <h2>{country[0]?.subregion}</h2>
+            <h2>{country[0]?.capital}</h2>
+            <h2>{country[0]?.tld}</h2>
+            <h2>{country[0]?.languages.cnr}</h2>
+            <h2>
+              {country[0]?.borders.map((border) => {
+                return <p>{border}</p>;
+              })}
+            </h2>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
