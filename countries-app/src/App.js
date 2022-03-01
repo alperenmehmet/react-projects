@@ -8,7 +8,6 @@ export function App() {
   return (
     <>
       <Navbar />
-      <SearchCountry />
       <Routes>
         <Route path='/' element={<CountriesList />} />
         <Route path='/:name' element={<SingleCountry />} />

@@ -7,6 +7,7 @@ export function CountriesList() {
 
   return (
     <div className='countries'>
+      <SearchCountry />
       <div className='section-center countries-grid'>
         {countries.map((country, index) => {
           return <CountryCard key={index} {...country} />;
