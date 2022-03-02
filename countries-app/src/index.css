@@ -170,3 +170,44 @@ COUNTRY
 .country-info span {
   font-weight: 600;
 }
+
+/**********************
+SINGLE COUNTRY
+***********************/
+
+.wrapper {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, [col] 800px);
+  grid-template-rows: repeat(2, [row] auto);
+  margin-top: 2rem;
+}
+
+.box {
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+}
+
+.single-image {
+  grid-column: col / span 2;
+  grid-row: row 2;
+}
+
+.information-section {
+  grid-column: col 3 / span 2;
+  grid-row: row 2;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.left-side {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.right-side {
+  grid-column: 2;
+  grid-row: 2;
+}

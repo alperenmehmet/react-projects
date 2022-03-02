@@ -21,39 +21,37 @@ export function SingleCountry() {
 
   console.log(country[0]);
 
-  // const {
-  //   population,
-  //   region,
-  //   subregion,
-  //   capital,
-  //   tld,
-  //   currencies,
-  //   languages,
-  //   borders,
-  //   flags,
-  // } = country[0];
-
   return (
     <div>
-      {country[0] !== 'undefined' && (
-        <div className='section-center'>
+      <div className='section-center wrapper'>
+        <div>
+          <img
+            src={country[0]?.flags.png}
+            alt='country'
+            className='box single-image'
+          />
+        </div>
+        <div className='box '>
+          <p className='left-side'>Population : {country[0]?.population}</p>
+          <p className='left-side'>
+            Native Name: {country[0]?.name?.nativeName?.spa?.official}
+          </p>
+          <p className='left-side'>Region : {country[0]?.region}</p>
+          <p className='left-side'>
+            Currencies : {country[0]?.currencies.name}
+          </p>
+          <p className='right-side'>Subregion : {country[0]?.subregion}</p>
+          <p className='right-side'>Capital : {country[0]?.capital}</p>
+          <p className='right-side'>Top Level Domain : {country[0]?.tld}</p>
+          <p className='right-side'>Languages : {country[0]?.languages.cnr}</p>
           <div>
-            <img src={country[0]?.flags.png} alt='country' />
-            <h3>{country[0]?.population}</h3>
-            <h2>{country[0]?.region}</h2>
-            <h2>{country[0]?.currencies.name}</h2>
-            <h2>{country[0]?.subregion}</h2>
-            <h2>{country[0]?.capital}</h2>
-            <h2>{country[0]?.tld}</h2>
-            <h2>{country[0]?.languages.cnr}</h2>
-            <h2>
-              {country[0]?.borders.map((border) => {
-                return <p>{border}</p>;
-              })}
-            </h2>
+            Borders:
+            {country[0]?.borders?.map((border, index) => {
+              return <p key={index}>{border}</p>;
+            })}
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 }
