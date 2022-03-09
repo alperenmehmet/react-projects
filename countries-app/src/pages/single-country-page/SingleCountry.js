@@ -38,12 +38,16 @@ export function SingleCountry() {
           </p>
           <p className='left-side'>Region : {country[0]?.region}</p>
           <p className='left-side'>
-            Currencies : {country[0]?.currencies.name}
+            Currencies :
+            {
+              country[0]?.currencies[Object.keys(country[0]?.currencies)[0]]
+                .name
+            }
           </p>
           <p className='right-side'>Subregion : {country[0]?.subregion}</p>
           <p className='right-side'>Capital : {country[0]?.capital}</p>
           <p className='right-side'>Top Level Domain : {country[0]?.tld}</p>
-          <p className='right-side'>Languages : {country[0]?.languages.cnr}</p>
+          <p className='right-side'>Languages : {country[0]?.languages?.cnr}</p>
           <div>
             Borders:
             {country[0]?.borders?.map((border, index) => {
