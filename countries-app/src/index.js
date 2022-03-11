@@ -4,14 +4,20 @@ import './index.css';
 import { App } from './App';
 import { AppProvider } from './context';
 import { BrowserRouter } from 'react-router-dom';
+import { ChakraProvider } from '@chakra-ui/react';
+import { ColorModeScript } from '@chakra-ui/react';
+import theme from './theme';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <AppProvider>
-        <App />
-      </AppProvider>
-    </BrowserRouter>
-  </React.StrictMode>,
+  <ChakraProvider theme={theme}>
+    <React.StrictMode>
+      <BrowserRouter>
+        <AppProvider>
+          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+          <App />
+        </AppProvider>
+      </BrowserRouter>
+    </React.StrictMode>
+  </ChakraProvider>,
   document.getElementById('root')
 );

@@ -47,7 +47,10 @@ export function SingleCountry() {
           <p className='right-side'>Subregion : {country[0]?.subregion}</p>
           <p className='right-side'>Capital : {country[0]?.capital}</p>
           <p className='right-side'>Top Level Domain : {country[0]?.tld}</p>
-          <p className='right-side'>Languages : {country[0]?.languages?.cnr}</p>
+          <p className='right-side'>
+            Languages :
+            {country[0]?.languages[Object.keys(country[0]?.languages)[0]]}
+          </p>
           <div>
             Borders:
             {country[0]?.borders?.map((border, index) => {
