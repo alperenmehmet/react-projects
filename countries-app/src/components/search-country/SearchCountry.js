@@ -1,3 +1,4 @@
+import { Input } from '@chakra-ui/react';
 import { useEffect, useRef } from 'react';
 import { useGlobalContext } from '../../context';
 
@@ -18,7 +19,7 @@ export function SearchCountry() {
   return (
     <div className='section-center search-form'>
       <form onSubmit={handleSubmit}>
-        <input
+        <Input
           type='text'
           className='form-input '
           ref={searchValue}

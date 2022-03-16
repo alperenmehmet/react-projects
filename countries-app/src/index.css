@@ -17,7 +17,7 @@ RESET
 /*
  VARIABLES
  */
-:root {
+/* :root {
   --clr-Dark-Blue-Dark-Mode-Elements: hsl(209, 23%, 22%);
   --clr-Very-Dark-Blue-Dark-Mode-Backgorund: hsl(207, 26%, 17%);
   --clr-Very-Dark-Blue-Light-Mode-Text: hsl(209, 23%, 22%);
@@ -31,7 +31,7 @@ RESET
   --transition: all 0.3s linear;
   --main-White: #fff;
   --main-Black: #000;
-}
+} */
 
 h1 {
   font-size: 3rem;
@@ -146,7 +146,6 @@ COUNTRIES
 COUNTRY
 ***********************/
 .country-card {
-  background: #fff;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   padding-bottom: 2rem;
