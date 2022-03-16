@@ -1,4 +1,4 @@
-import { Input } from '@chakra-ui/react';
+import { Flex, Input } from '@chakra-ui/react';
 import { useEffect, useRef } from 'react';
 import { useGlobalContext } from '../../context';
 
