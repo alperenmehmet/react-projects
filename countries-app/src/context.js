@@ -5,6 +5,7 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
   const [countries, setCountries] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [filteredCountry, setFilteredCountry] = useState([]);
 
   const fetchCountries = useCallback(async () => {
     try {
@@ -22,9 +23,28 @@ const AppProvider = ({ children }) => {
     fetchCountries();
   }, [fetchCountries]);
 
+  const filterCountryByRegion = (region) => {
+    if (region === 'ALL') {
+      setCountries(countries);
+      return;
+    }
+    const newCountries = countries.filter(
+      (country) => country.region === region
+    );
+    setFilteredCountry(newCountries);
+  };
+
   return (
     <AppContext.Provider
-      value={{ countries, setCountries, searchTerm, setSearchTerm }}
+      value={{
+        countries,
+        setCountries,
+        searchTerm,
+        setSearchTerm,
+        filteredCountry,
+        setFilteredCountry,
+        filterCountryByRegion,
+      }}
     >
       {children}
     </AppContext.Provider>
