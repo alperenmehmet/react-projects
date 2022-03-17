@@ -3,24 +3,28 @@ import { useState } from 'react';
 import { useGlobalContext } from '../../context';
 
 const ContinentFilter = () => {
-  const [continents, setContinents] = useState([]);
+  const [regions, setRegions] = useState([]);
   const { countries } = useGlobalContext();
 
-  const filteredContinents = (continent) => {
-    const newContinent = countries.filter(
-      (item) => item.continents === item.continent
-    );
-    setContinents(newContinent);
+  const filteredContinent = (continent) => {
+    const newItem = countries.filter((item) => {
+      return item.continents === continent;
+    });
+    setRegions(newItem);
   };
 
-  console.log(continents);
+  console.log(regions);
 
   return (
     <Flex m='3rem auto' w='300px'>
       <FormControl>
         <Select id='country' placeholder='Select Continent'>
           {countries.map((item, index) => {
-            return <option key={index}>{item.continents}</option>;
+            return (
+              <option key={index} onSubmit={() => filteredContinent()}>
+                {item.continents}
+              </option>
+            );
           })}
         </Select>
       </FormControl>
