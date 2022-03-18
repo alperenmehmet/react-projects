@@ -1,11 +1,12 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { BASE_URL, URL_ALL_COUNTRIES, URL_COUNTRY } from './constants/api';
+import { URL_ALL_COUNTRIES, URL_COUNTRY } from './constants/api';
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   const [countries, setCountries] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [filteredCountry, setFilteredCountry] = useState([]);
+  const [filteredCountry, setFilteredCountry] = useState();
+  const [dropDownValue, setDropDownValue] = useState('');
 
   const fetchCountries = useCallback(async () => {
     try {
@@ -14,25 +15,36 @@ const AppProvider = ({ children }) => {
       );
       const data = await response.json();
       setCountries(data);
+      setFilteredCountry(data);
     } catch (err) {
       console.log(err);
     }
   }, [searchTerm]);
 
+  const filterCountryByRegion = (region) => {
+    if (region === 'All Continents') {
+      setCountries(filteredCountry);
+      console.log('inside if', filteredCountry);
+      return;
+    }
+    const newCountries = filteredCountry?.filter(
+      (country) => country.region == region
+    );
+    setCountries(newCountries);
+  };
+
+  const handleDropDown = (e) => {
+    setDropDownValue(e.target.value);
+  };
+
+  const filteredRegion = [
+    'All Continents',
+    ...new Set(filteredCountry?.map((country) => country.region)),
+  ];
+
   useEffect(() => {
     fetchCountries();
   }, [fetchCountries]);
-
-  const filterCountryByRegion = (region) => {
-    if (region === 'ALL') {
-      setCountries(countries);
-      return;
-    }
-    const newCountries = countries.filter(
-      (country) => country.region === region
-    );
-    setFilteredCountry(newCountries);
-  };
 
   return (
     <AppContext.Provider
@@ -41,9 +53,13 @@ const AppProvider = ({ children }) => {
         setCountries,
         searchTerm,
         setSearchTerm,
+        filterCountryByRegion,
         filteredCountry,
         setFilteredCountry,
-        filterCountryByRegion,
+        dropDownValue,
+        setDropDownValue,
+        handleDropDown,
+        filteredRegion,
       }}
     >
       {children}

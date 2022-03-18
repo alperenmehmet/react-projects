@@ -5,6 +5,7 @@ import { CountryCard } from '../country-card/CountryCard';
 import { SearchCountry } from '../search-country/SearchCountry';
 
 export function CountriesList() {
+  const { countries } = useGlobalContext();
   return (
     <div className='countries'>
       <Flex className='section-center' direction='row'>
