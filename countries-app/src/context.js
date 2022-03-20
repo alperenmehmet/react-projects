@@ -5,8 +5,8 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
   const [countries, setCountries] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [filteredCountry, setFilteredCountry] = useState();
-  const [dropDownValue, setDropDownValue] = useState('');
+  const [filteredCountry, setFilteredCountry] = useState([]);
+  const [dropDownValue, setDropDownValue] = useState('All REgions');
 
   const fetchCountries = useCallback(async () => {
     try {
@@ -22,9 +22,8 @@ const AppProvider = ({ children }) => {
   }, [searchTerm]);
 
   const filterCountryByRegion = (region) => {
-    if (region === 'All Continents') {
+    if (region === 'All Regions') {
       setCountries(filteredCountry);
-      console.log('inside if', filteredCountry);
       return;
     }
     const newCountries = filteredCountry?.filter(
@@ -33,18 +32,16 @@ const AppProvider = ({ children }) => {
     setCountries(newCountries);
   };
 
-  const handleDropDown = (e) => {
-    setDropDownValue(e.target.value);
-  };
-
   const filteredRegion = [
-    'All Continents',
+    'All Regions',
     ...new Set(filteredCountry?.map((country) => country.region)),
   ];
 
   useEffect(() => {
     fetchCountries();
   }, [fetchCountries]);
+
+  console.log(filteredCountry);
 
   return (
     <AppContext.Provider
@@ -58,7 +55,6 @@ const AppProvider = ({ children }) => {
         setFilteredCountry,
         dropDownValue,
         setDropDownValue,
-        handleDropDown,
         filteredRegion,
       }}
     >

@@ -9,15 +9,15 @@ import { ColorModeScript } from '@chakra-ui/react';
 import theme from './theme';
 
 ReactDOM.render(
-  <ChakraProvider theme={theme}>
-    <React.StrictMode>
+  <React.StrictMode>
+    <ChakraProvider theme={theme}>
       <BrowserRouter>
         <AppProvider>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <App />
         </AppProvider>
       </BrowserRouter>
-    </React.StrictMode>
-  </ChakraProvider>,
+    </ChakraProvider>
+  </React.StrictMode>,
   document.getElementById('root')
 );

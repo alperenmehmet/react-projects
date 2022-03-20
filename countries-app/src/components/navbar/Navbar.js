@@ -1,5 +1,4 @@
 import { useColorMode, Button } from '@chakra-ui/react';
-import '../navbar/style.css';
 
 export function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode();

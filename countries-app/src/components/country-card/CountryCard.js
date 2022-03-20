@@ -1,7 +1,5 @@
-import { useEffect, useState } from 'react';
 import { Box, Text, Image } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import './style.css';
 
 export function CountryCard({ name, population, region, capital, flags }) {
   const newName = name.official.replace(/\s/g, '').toLowerCase();
