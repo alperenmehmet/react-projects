@@ -1,4 +1,5 @@
 import { Box, Text, Image } from '@chakra-ui/react';
+import millify from 'millify';
 import { Link } from 'react-router-dom';
 
 export function CountryCard({ name, population, region, capital, flags }) {
@@ -26,7 +27,7 @@ export function CountryCard({ name, population, region, capital, flags }) {
       </Text>
       <Box className='country-info'>
         <Text className='country-population'>
-          <span>Population :</span> {population}
+          <span>Population :</span> {millify(population)}
         </Text>
         <Text className='country-region'>
           <span>Region :</span> {region}
