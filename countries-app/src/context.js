@@ -6,7 +6,7 @@ const AppProvider = ({ children }) => {
   const [countries, setCountries] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredCountry, setFilteredCountry] = useState([]);
-  const [dropDownValue, setDropDownValue] = useState('All REgions');
+  const [dropDownValue, setDropDownValue] = useState('All Regions');
 
   const fetchCountries = useCallback(async () => {
     try {

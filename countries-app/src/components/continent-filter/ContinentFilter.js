@@ -1,4 +1,4 @@
-import { Flex, FormControl, MenuOptionGroup, Select } from '@chakra-ui/react';
+import { Flex, FormControl, Select } from '@chakra-ui/react';
 import { useGlobalContext } from '../../context';
 
 const ContinentFilter = () => {
@@ -16,7 +16,7 @@ const ContinentFilter = () => {
 
   return (
     <Flex m='3rem auto' w='300px'>
-      <FormControl value='Select Continent'>
+      <FormControl value='Select Region'>
         <Select
           id='country'
           value={dropDownValue}
