@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { URL_COUNTRY } from '../../constants/api';
 import {
-  Box,
-  Button,
   Container,
   Flex,
   Image,
@@ -35,8 +33,8 @@ export function SingleCountry() {
   return (
     <Container maxWidth='container.xl'>
       <Flex>
-        <Link to={`/`} mx='60px' p={5} my={7}>
-          <FaArrowLeft style={{ margin: '5px' }} />
+        <Link to={`/`} className='go-back-link'>
+          <FaArrowLeft />
           Go Back
         </Link>
       </Flex>

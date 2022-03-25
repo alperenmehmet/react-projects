@@ -7,18 +7,18 @@ export function CountryCard({ name, population, region, capital, flags }) {
 
   const theme = localStorage.getItem('chakra-ui-color-mode');
 
-  const styleForDarkMode = {
-    backgroundColor: '#2D3748',
-    color: '#FFFFFF',
-  };
-  const styleForLightMode = {
-    backgroundColor: '#FFFFFF',
-    color: '#000000',
-  };
-  const styleForTheme = theme === 'dark' ? styleForDarkMode : styleForLightMode;
+  // const styleForDarkMode = {
+  //   backgroundColor: '#2D3748',
+  //   color: '#FFFFFF',
+  // };
+  // const styleForLightMode = {
+  //   backgroundColor: '#FFFFFF',
+  //   color: '#000000',
+  // };
+  // const styleForTheme = theme === 'dark' ? styleForDarkMode : styleForLightMode;
 
   return (
-    <Box className='country-card' style={styleForTheme}>
+    <Box className='country-card'>
       <Link to={`/${newName}`}>
         <Image src={flags.png} alt='country' />
       </Link>
